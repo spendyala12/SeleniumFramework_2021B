@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="false">
+	<test name="Test1">
+		<parameter name="dataFile"
+			value="src\cloud\tests\HCM\CoreHR_USA\HireAnEmployeeITC_Test.xlsx"/>
+		<parameter name="sheet" value="TS01"/>
+		<parameter name="scenario" value="T01"/>
+		<classes>
+			<class name="cloud.tests.HCM.CoreHR_USA.HireAnEmployeeITC_Test"/>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

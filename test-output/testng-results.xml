@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="254218" started-at="2021-05-27T15:30:52Z" finished-at="2021-05-27T15:35:07Z">
+    <groups>
+    </groups>
+    <test name="Test1" duration-ms="254218" started-at="2021-05-27T15:30:52Z" finished-at="2021-05-27T15:35:07Z">
+      <class name="cloud.tests.HCM.CoreHR_USA.HireAnEmployeeITC_Test">
+        <test-method status="PASS" signature="start()[pri:0, instance:cloud.tests.HCM.CoreHR_USA.HireAnEmployeeITC_Test@6500df86]" name="start" is-config="true" duration-ms="5885" started-at="2021-05-27T15:30:52Z" finished-at="2021-05-27T15:30:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- start -->
+        <test-method status="PASS" signature="executeTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:cloud.tests.HCM.CoreHR_USA.HireAnEmployeeITC_Test@6500df86]" name="executeTest" duration-ms="246210" started-at="2021-05-27T15:30:58Z" finished-at="2021-05-27T15:35:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[src\cloud\tests\HCM\CoreHR_USA\HireAnEmployeeITC_Test.xlsx]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[TS01]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[T01]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- executeTest -->
+        <test-method status="PASS" signature="end()[pri:0, instance:cloud.tests.HCM.CoreHR_USA.HireAnEmployeeITC_Test@6500df86]" name="end" is-config="true" duration-ms="2080" started-at="2021-05-27T15:35:04Z" finished-at="2021-05-27T15:35:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- end -->
+      </class> <!-- cloud.tests.HCM.CoreHR_USA.HireAnEmployeeITC_Test -->
+    </test> <!-- Test1 -->
+  </suite> <!-- Suite -->
+</testng-results>
