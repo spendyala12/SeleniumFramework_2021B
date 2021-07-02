@@ -32,7 +32,7 @@ public class CreatingManualInvoicesITC_Test extends BaseTest {
 	}
 	@AfterTest
 	public void end(){
-		close();
+		//close();
 	}
 
 }

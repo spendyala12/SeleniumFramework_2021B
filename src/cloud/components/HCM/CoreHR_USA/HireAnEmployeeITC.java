@@ -20,7 +20,10 @@ public class HireAnEmployeeITC extends BaseTest{
 	public static String Manager;
 	public static String SalaryBasis;
 	public static String SalaryAmt;
-	
+	//
+	public static String HireDate;
+	public static String HireAction;
+	public static String HireReason;
 
 	
 	
@@ -30,6 +33,9 @@ public class HireAnEmployeeITC extends BaseTest{
 		
 		clickElement(By.linkText("New Person")); //New Person
 		clickElement(By.linkText("Hire an Employee")); //Hire an Employee
+		setElementText(By.xpath("//*[contains(@id, 'it20::content')]"), LastName); //HireDate
+		clickElement(By.xpath("//*[contains(@id, 'selectOneChoice1::drop')]")); //HireAction
+		clickElement(By.xpath("//*[contains(@id, 'SP1:tt1:next')]")); //HireReason
 		setElementText(By.xpath("//*[contains(@id, 'SP1:selectOneChoice3::content')]"), LegalEmployer); //LegalEmployer
 		browser.findElement(By.xpath("//*[contains(@id, 'SP1:selectOneChoice3::content')]")).sendKeys(Keys.TAB);
 		setElementText(By.xpath("//*[contains(@id, 'it20::content')]"), LastName);

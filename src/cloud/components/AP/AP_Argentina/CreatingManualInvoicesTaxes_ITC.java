@@ -1,10 +1,15 @@
-package cloud.components.AP.AP_USA;
+package cloud.components.AP.AP_Argentina;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.SearchContext;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
 import itc.framework.BaseTest;
 
-public class CreatingManualInvoicesITC extends BaseTest{
+public class CreatingManualInvoicesTaxes_ITC extends BaseTest{
 
 
 	public static String BusinessUnit;
@@ -20,7 +25,9 @@ public class CreatingManualInvoicesITC extends BaseTest{
 	public static String AccountingDate;
 	public static String LiabilityDistribution;
 	public static String LinesAmount;
-	public static String DisbCombination;
+	public static String Distribution_DisbCombination;
+	public static String Tax_TaxClassification;
+	public static String Tax_IntendedUse;
 	//Extra fields added
 	public static String LinesDistributionSet;
 	public static String InvoiceGroup;
@@ -57,50 +64,69 @@ public class CreatingManualInvoicesITC extends BaseTest{
 	public static String CorrectedInvoice_CorrectionType;
 	public static String CorrectedInvoice_Number;
 	public static String Project_ProjectNumber;
-
+	
+	
+	
+	
+	
 
 	private static void run() throws Exception  {
 
-		/*
-		 * clickElement(By.xpath("//*[contains(@id, 'UISmmLink::icon')]")); //Navigator
-		 * clickElement(By.xpath("//a[@id='pt1:_UISnvr:0:nvcl1']")); //Show more
-		 */
-		clickElement(By.linkText("Invoices")); //Invoices
+		//clickElement(By.xpath("//span[contains(text(),'Invoices')]")); //Invoices
+		clickElement(By.linkText("Invoices"));
+		//scrollByElement(By.xpath("//span[contains(text(),'Manual invoice entry')]"));
+		//JavascriptExecutor js = (JavascriptExecutor) browser;
+
+       		
+       // js.executeScript("window.scrollBy(0,1000)");
+		//WebElement Element = browser.findElement(By.xpath("//span[contains(text(),'Description')]"));
+		//js.executeScript("arguments[0].scrollIntoView();", Element);
 		clickElement(By.xpath("//*[contains(@id, 'FndTasksList::icon')]")); //Task button
 		clickElement(By.linkText("Create Invoice")); //Create Invoice
-
-
+		
+		
 		//Enter fields
+		
 		setElementText(By.xpath("//*[contains(@id,'ic2::content')]"), BusinessUnit); //BusinessUnit
 		clickElement(By.xpath("//*[contains(@id,'ap1:r2:0:ic3::lovIconId')]"));
 		setElementText(By.xpath("//*[contains(@id,'ap1:r2:0:ic3::_afrLovInternalQueryId:value00::content')]"), Supplier); //Supplier
 		clickElement(By.xpath("//*[contains(@id,'ap1:r2:0:ic3::_afrLovInternalQueryId::search')]")); //Search
-		clickElement(By.xpath("//span[contains(text(),'ADVANZ101 BUSINESS SYSTEMS INC')]")); //Select
+		clickElement(By.xpath("//span[contains(text(),'ABRIGO IVAN EMANUEL')]")); //  Select ABDS CONSULTORIA EM INFORMATICA LTDA //'ABRIGO IVAN EMANUEL'
 		clickElement(By.xpath("//*[contains(@id,'ap1:r2:0:ic3::lovDialogId::ok')]")); //OK
-		browser.findElement(By.xpath("//*[contains(@id, 'MAnt2:1:pm1:r1:0:ap1:r2:0:ic3::content')]")).sendKeys(Keys.TAB);
+		setElementText(By.xpath("//*[contains(@id, 'MAnt2:1:pm1:r1:0:ap1:r2:0:i2::content')]"), InvoiceGroup); // InvoiceGroup 
+		browser.findElement(By.xpath("//*[contains(@id,'MAnt2:1:pm1:r1:0:ap1:r2:0:ic3::content')]")).sendKeys(Keys.TAB);
+		Thread.sleep(5000);
 		setElementText(By.xpath("//*[contains(@id, 'MAnt2:1:pm1:r1:0:ap1:r2:0:i2::content')]"), InvoiceNum); //InvoiceNum
 		browser.findElement(By.xpath("//*[contains(@id,'ap1:r2:0:i2::content')]")).sendKeys(Keys.TAB);
-		setElementText(By.xpath("//option[contains(text(),'USD - US Dollar')]"), Currency); //Currency
+		setElementText(By.xpath("//option[contains(text(),'ARS - Argentine Peso')]"), Currency); //Currency
+		//setElementText(By.xpath("//option[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pm1:r1:0:ap1:r2:0:i3::content')]"), Currency); //Currency
 		setElementText(By.xpath("//*[contains(@id,'ap1:r2:0:i3::content')]"), InvAmount); //InvAmount
 		setElementText(By.xpath("//option[contains(text(),'Standard')]"), InvType); //InvType
 		setElementText(By.xpath("//*[contains(@id,'ap1:r2:0:i4::content')]"), Desc); //Description
 		setElementText(By.xpath("//*[contains(@id,'ap1:r2:0:id2::content')]"), InvDate); //Date
 		setElementText(By.xpath("//*[contains(@id,'ap1:r2:0:so3::content')]"), PaymentTerms); //PaymentTerms
 		setElementText(By.xpath("//*[contains(@id,'ap1:r2:0:id5::content')]"), TermsDate); //TermsDate
-		browser.findElement(By.xpath("//*[contains(@id,'ap1:r2:0:id5::content')]")).sendKeys(Keys.TAB);
-//		clickElement(By.xpath("//*[contains(@id, 'MAnt2:1:pm1:r1:0:ap1:cl1')]"));//Show more
-		clickElement(By.linkText("Show More"));
-		clickElement(By.linkText("Accounting"));//Click Accounting link
-		setElementText(By.xpath("//*[contains(@id, 'ap1:id4::content')]"), AccountingDate); //AccountingDate
-		setElementText(By.xpath("//*[contains(@id, 'ap1:kf2CS::content')]"), LiabilityDistribution); //LiabilityDistribution
 		clickElement(By.xpath("//*[contains(@id, 'ap1:sh2::_afrDscl')]")); //ExpandLines
-		//clickElement(By.xpath("//tbody/tr[@id='_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pm1:r1:0:ap1:at2:_ATp:_clmns']/td[2]")); //Columns option
-        
-		//clickElement(By.xpath("//tbody/tr[@id='_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pm1:r1:0:ap1:at2:_ATp:_shwAll']/td[2]")); //Show all Option
-		//Thread.sleep(10000);
-		setElementText(By.xpath("//*[contains(@id, 'ATp:ta2:0:i26::content')]"), LinesAmount); //LinesAmount
-		setElementText(By.xpath("//*[contains(@id, 'ATp:ta2:0:kf1CS::content')]"), DisbCombination);
 		
+		//Changes//
+		
+		clickElement(By.linkText("View")); // Lines View
+		clickElement(By.xpath("//*[@id=\"_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pm1:r1:0:ap1:at2:_ATp:_clmns\"]/td[2]")); //Columns option
+		                   
+		clickElement(By.xpath("//*[@id=\"_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pm1:r1:0:ap1:at2:_ATp:_shwAll\"]/td[2]")); //Show all Option
+		Thread.sleep(10000);
+		setElementText(By.xpath("//*[contains(@id, 'ATp:ta2:0:i26::content')]"), LinesAmount); //LinesAmount
+		Thread.sleep(5000);
+		setElementText(By.xpath("//*[contains(@id, 'ATp:ta2:0:kf1CS::content')]"), LinesDistributionSet); // Lines Distribution Set//
+		setElementText(By.xpath("//*[contains(@id, 'ATp:ta2:0:kf1CS::content')]"), Distribution_DisbCombination); // Distribution Combination//
+		JavascriptExecutor js = (JavascriptExecutor) browser;
+		// js.executeScript("window.scrollBy(0,1000)");
+		WebElement Element = browser.findElement(By.xpath("//span[contains(text(),'Intended Use')]"));
+		js.executeScript("arguments[0].scrollIntoView();", Element);
+		browser.findElement(By.xpath("//*[contains(@id, 'ta2:0:ic27::content')]")).sendKeys(Keys.TAB);
+		setElementText(By.xpath("//*[contains(@id, 'ta2:0:ic27::content')]"), Tax_TaxClassification);   // Tax Classification 
+		browser.findElement(By.xpath("//*[contains(@id, 'ta2:0:fcslov2:sis1:is1::content')]")).sendKeys(Keys.TAB);
+		setElementText(By.xpath("//*[contains(@id, 'ta2:0:fcslov2:sis1:is1::content')]"),Tax_IntendedUse); // IntendedUse
 		//setElementText(By.xpath("//*[contains(@id, 'pm1:r1:0:ap1:at2:_ATp:ta2:0:ic41::content')]"), Tax_Withholding); // Withholding
 		//setElementText(By.xpath("//*[contains(@id, 'ta2:0:ic28::content')]"), Tax_ShipToLocation); //ShipToLocation
 		//setElementText(By.xpath("//*[contains(@id, 'ta2:0:ic202::content')]"), Reference_Requester);  //Requester
@@ -133,7 +159,12 @@ public class CreatingManualInvoicesITC extends BaseTest{
 		//setElementText(By.xpath("//*[contains(@id, 'ta2:0:so17::content')]"), CorrectedInvoice_CorrectionType);
 		//setElementText(By.xpath("//*[contains(@id, 'ta2:0:ic42::content')]"), CorrectedInvoice_Number);
 		//setElementText(By.xpath("//*[contains(@id, 'ta2:0:df3_LinePJCDFF1Iterator_PROJECT_ID_Display::content')]"), Project_ProjectNumber);
-		clickElement(By.linkText("Additional Information")); //Click link
+		//clickElement(By.xpath("//*[contains(@id, 'MAnt2:1:pm1:r1:0:ap1:cl1')]"));//Show more
+		//clickElement(By.linkText("Show More"));//show more
+		//clickElement(By.linkText("Accounting"));//Click Accounting link
+		//setElementText(By.xpath("//*[contains(@id, 'ap1:id4::content')]"), AccountingDate); //AccountingDate
+		//setElementText(By.xpath("//*[contains(@id, 'ap1:kf2CS::content')]"), LiabilityDistribution); //LiabilityDistribution
+		//clickElement(By.linkText("Additional Information")); //Click link
 		clickElement(By.xpath("//a[contains(text(),'Invoice Actions')]"));
 		clickElement(By.xpath("//td[contains(text(),'Validate')]"));
 		clickElement(By.xpath("//a[contains(text(),'Invoice Actions')]"));
@@ -141,10 +172,11 @@ public class CreatingManualInvoicesITC extends BaseTest{
 		clickElement(By.xpath("//*[contains(@id, 'ap1:cb43')]"));// Confirmation OK
 		clickElement(By.xpath("//*[contains(@id, 'ap1:cb14')]")); //Save and close
 		
-		
-		
-		
+	}
 
+	private static void delay(int i) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	public static void run(int iterations) throws Exception{
@@ -152,7 +184,7 @@ public class CreatingManualInvoicesITC extends BaseTest{
 		for(int i=0;i<iterations;i++)
 		{
 			iteration=i;
-			popluateParams(CreatingManualInvoicesITC.class);
+			popluateParams(CreatingManualInvoicesTaxes_ITC.class);
 			run();
 		}
 	}

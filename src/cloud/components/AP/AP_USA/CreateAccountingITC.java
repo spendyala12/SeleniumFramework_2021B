@@ -10,7 +10,16 @@ public class CreateAccountingITC extends BaseTest{
 
 	public static String Ledger;
 	public static String SubledgerApplication;
-
+//
+	public static String ProcessCategory;
+	public static String EndDate;
+	public static String AccountingMode;
+	public static String ProcessEvents;
+	public static String ReportStyle;
+	public static String TransferToGeneralLedger;
+	public static String PostInGeneralLedger;
+	public static String JournalBatch;
+	public static String IncludeUserTransactionIndentifier;
 	
 	
 
@@ -26,6 +35,17 @@ public class CreateAccountingITC extends BaseTest{
 		browser.findElement(By.xpath("//*[contains(@id,'LedgerAttr::content')]")).sendKeys(Keys.TAB);
 		clickElement(By.xpath("//*[contains(@id,'requestBtns:submitButton')]"));
 		clickElement(By.xpath("//*[contains(@id,'confirmSubmitDialog::ok')]"));
+		
+		//setElementText(By.xpath("//*[contains(@id,'ATTRIBUTE5::content')]"), ProcessCategory);
+		//setElementText(By.xpath("//*[contains(@id,'ATTRIBUTE6::content')]"), EndDate);
+		//setElementText(By.xpath("//*[contains(@id,'ATTRIBUTE8::content')]"), AccountingMode);
+		//setElementText(By.xpath("//*[contains(@id,'ATTRIBUTE9::content')]"), ProcessEvents);
+		//setElementText(By.xpath("//*[contains(@id,'ATTRIBUTE10::content')]"), ReportStyle);
+		//setElementText(By.xpath("//*[contains(@id,'ATTRIBUTE11::content')]"), TransferToGeneralLedger);
+		//setElementText(By.xpath("//*[contains(@id,'ATTRIBUTE12::content')]"), PostInGeneralLedger);
+		//setElementText(By.xpath("//*[contains(@id,'ATTRIBUTE13::content')]"), JournalBatch);
+		//setElementText(By.xpath("//*[contains(@id,'ATTRIBUTE15::content')]"), IncludeUserTransactionIndentifier);
+		
 	}
 
 	public static void run(int iterations) throws Exception{

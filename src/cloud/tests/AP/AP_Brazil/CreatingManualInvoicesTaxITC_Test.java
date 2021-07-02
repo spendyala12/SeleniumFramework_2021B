@@ -1,15 +1,16 @@
-package cloud.tests.HCM.TimeAndAbsence_India;
+package cloud.tests.AP.AP_Brazil;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import cloud.components.HCM.TimeAndAbsence_India.AbsenceEntryITC;
+import cloud.components.AP.AP_Brazil.CreatingManualInvoicesTax_ITC;
 import cloud.components.common.Login;
 import cloud.components.common.Navigate;
+
 import itc.framework.BaseTest;
 
-public class AbseneceEntryITC_Test extends BaseTest {
+public class CreatingManualInvoicesTaxITC_Test extends BaseTest {
 	
 	@BeforeTest
 	public void start(){
@@ -24,7 +25,7 @@ public class AbseneceEntryITC_Test extends BaseTest {
 		testsheet = sheet1;
 		Login.run(1);
 		Navigate.run(1);
-		AbsenceEntryITC.run(1);
+		CreatingManualInvoicesTax_ITC.run(1);
 	}
 	@AfterTest
 	public void end(){

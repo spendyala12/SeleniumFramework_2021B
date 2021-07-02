@@ -29,7 +29,7 @@ public class CreatePaymentsITC_Test extends BaseTest {
 	}
 	@AfterTest
 	public void end(){
-		close();
+		//close();
 	}
 
 }
