@@ -5,6 +5,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import cloud.components.GL.GL_Argentina.CreatingParametersforRevaluationITC;
 import cloud.components.common.Login;
+import cloud.components.common.Navigate;
 import cloud.components.common.Navigate_More;
 import itc.framework.BaseTest;
 public class CreatingParametersforRevaluationITC_Test extends BaseTest{
@@ -21,7 +22,7 @@ public class CreatingParametersforRevaluationITC_Test extends BaseTest{
 			scenario = scenario1;
 			testsheet = sheet1;
 			Login.run(1);
-			Navigate_More.run(1);
+			Navigate.run(1);
 			CreatingParametersforRevaluationITC.run(1);
 		}
 		@AfterTest

@@ -17,11 +17,12 @@ public class ReversingaPostedJournalBatchITC extends BaseTest{
 		clickElement(By.linkText("Journals"));
 		clickElement(By.xpath("//*[contains(@id,'_FndTasksList::icon')]"));
 		clickElement(By.linkText("Manage Journals"));
-		setElementText(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pt1:ap1:queryP:value20::content')]"),Accounting_Period);
-		setElementText(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pt1:ap1:queryP:value30::content')]"),Source);
+		setElementText(By.xpath("//*[contains(@id,'pt1:ap1:queryP:value20::content')]"),Accounting_Period);
+		setElementText(By.xpath("//*[contains(@id,'pt1:ap1:queryP:value30::content')]"),Source);
 		new Select(browser.findElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pt1:ap1:queryP:value50::content')]"))).selectByVisibleText("Posted");
 		clickElement(By.xpath("//*[contains(@id,'search')]"));
 		clickElement(By.xpath("//*[@id='_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pt1:ap1:AT1:_ATp:t1::db']/table/tbody/tr[1]/td[5]/span"));
+		//clickElement(By.linkText(JournalName));
 		clickElement(By.linkText("Actions"));
 		clickElement(By.xpath("//td[contains(text(),'Reverse Batch')]"));
 		setElementText(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:pt1:ap1:revBatchPeriodId::content')]"),Reversal_Period);

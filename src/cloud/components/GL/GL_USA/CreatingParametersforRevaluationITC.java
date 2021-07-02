@@ -22,7 +22,11 @@ public class CreatingParametersforRevaluationITC extends BaseTest{
 		clickElement(By.linkText("Revalue Balances"));
 		clickElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:1:ap1:AT1:_ATp:create::icon')]")); //click create button
 		setElementText(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:it1::content')]"),Name);
+		Thread.sleep(5000);
+//		String Revaluation = browser.findElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:it1::content')]")).getText();
+//		System.out.println(Revaluation);
 		new Select(browser.findElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:sol1::content')]"))).selectByVisibleText("ITC BRAZIL COA INSTANCE"); //click the status drop down and select Open.
+		
 		
 		setElementText(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:userConversionTypeId::content')]"),ConversionRateType);
 		setElementText(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:kf1CS::content')]"),UnrealizedGainAccount);
@@ -39,15 +43,16 @@ public class CreatingParametersforRevaluationITC extends BaseTest{
 		clickElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:commandButton1')]")); //save button
 		Thread.sleep(5000);
 		clickElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:DAScommandButton12')]")); //Generate button
+		new Select(browser.findElement(By.xpath("//*[contains(@id,'AP1:r1:basicReqBody:dynam1:0:Revaluation::content')]"))).selectByVisibleText("ITC USA PL");
 		new Select(browser.findElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:basicReqBody:dynam1:0:soc2::content')]"))).selectByVisibleText("ITC USA PL"); 
 		setElementText(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:basicReqBody:dynam1:0:inputComboboxListOfValues1::content')]"),Revaluation); 
 		Thread.sleep(3000);
-		clickElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:basicReqBody:dynam1:0:soc3::content')]"));
-		clickElement(By.xpath("//option[contains(text(),'NOV-27')]"));
-		//setElementText(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:basicReqBody:dynam1:0:soc3::content')]"),AccountingPeriod);
+		clickElement(By.xpath("//*[contains(@id, 'AP1:r1:basicReqBody:dynam1:0:soc3::content')]"));
+		clickElement(By.xpath("//option[contains(text(), '"+AccountingPeriod+"')]"));
+
 		clickElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:requestBtns:submitButton')]"));
 		clickElement(By.xpath("//*[contains(@id,'confirmSubmitDialog::ok')]"));
-		
+//		
 		
 	}
 	public static void run(int iterations) throws Exception{

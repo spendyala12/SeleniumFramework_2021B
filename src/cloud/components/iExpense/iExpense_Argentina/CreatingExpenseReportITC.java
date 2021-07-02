@@ -6,9 +6,9 @@ import itc.framework.BaseTest;
 
 public class CreatingExpenseReportITC extends BaseTest {
 	
-	public static String Purpose;
+	public static String Purpose,Employer_pays_you;
 	public static String Date,Template,Type,Amount,Amount1;
-	public static String Description,ProjectNumber,TaskNumber,ConversionRate;
+	public static String Description,ProjectNumber,TaskNumber,ConversionRate,ReportNumber;
 	
 	private static void run() throws InterruptedException{
 		
@@ -18,7 +18,9 @@ public class CreatingExpenseReportITC extends BaseTest {
 		clickElement(By.xpath("//*[contains(@id, 'createReportButton')]")); //Create Report		
 		setElementText(By.xpath("//*[contains(@id,'it1::content')]"), Purpose);  //purpose
 		browser.findElement(By.xpath("//*[contains(@id,'it1::content')]")).sendKeys(Keys.TAB);
-
+		browser.findElement(By.xpath("//*[contains(@id,'ReceiptCurrencyCodeClientLov:sis1:is1::content')]")).click();
+		setElementText(By.xpath("//*[contains(@id,'ReceiptCurrencyCodeClientLov:sis1:is1::content')]"), Employer_pays_you); //Employer pays you
+		
 		Thread.sleep(5000);
 		clickElement(By.xpath("//span[contains(text(),'Create Item')]")); //+
 		setElementText(By.xpath("//*[contains(@id,'it1::content')]"), Date);  //date
@@ -40,13 +42,14 @@ public class CreatingExpenseReportITC extends BaseTest {
 		Thread.sleep(5000);
 		browser.findElement(By.xpath("//*[contains(@id,'Description::content')]")).sendKeys(Keys.TAB);
 		Thread.sleep(5000);
-//		setElementText(By.xpath("//*[contains(@id,'pjcdff_PJCDFFVOIterator_PROJECT_ID_DisplayEXM_Expense_Report_Line::content')]"), ProjectNumber);   //project number
-//		setElementText(By.xpath("//*[contains(@id,'pjcdff_PJCDFFVOIterator_TASK_ID_DisplayEXM_Expense_Report_Line::content')]"), TaskNumber);   //task number
+		setElementText(By.xpath("//*[contains(@id,'pjcdff_PJCDFFVOIterator_PROJECT_ID_DisplayEXM_Expense_Report_Line::content')]"), ProjectNumber);   //project number
+		setElementText(By.xpath("//*[contains(@id,'pjcdff_PJCDFFVOIterator_TASK_ID_DisplayEXM_Expense_Report_Line::content')]"), TaskNumber);   //task number
 		Thread.sleep(5000);	
 		clickElement(By.xpath("//span[contains(text(),'Save and Close')]"));   //save and close
 		clickElement(By.xpath("//*[@accesskey='m']"));    //submmit
 		Thread.sleep(5000);
-	
+		ReportNumber = browser.findElement(By.xpath("//*[contains(@id,'_ATp:t1:0:expenseReportLink')]")).getText();
+		System.out.println(ReportNumber);
 	}
 
 public static void run(int iterations) throws Exception{

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test1(failed)">
     <parameter name="scenario" value="T01"/>
-    <parameter name="dataFile" value="src\cloud\tests\AP\AP_Argentina\CreatingManualInvoicesITC_Test.xlsx"/>
+    <parameter name="dataFile" value="src\cloud\tests\GL\GL_USA\COAMappingMaintenanceITC_Test.xlsx"/>
     <parameter name="sheet" value="TS01"/>
     <classes>
-      <class name="cloud.tests.AP.AP_Argentina.CreatingManualInvoicesITC_Test">
+      <class name="cloud.tests.GL.GL_USA.COAMappingMaintenanceITC_Test">
         <methods>
-          <include name="end"/>
           <include name="executeTest" invocation-numbers="0"/>
+          <include name="end"/>
           <include name="start"/>
         </methods>
-      </class> <!-- cloud.tests.AP.AP_Argentina.CreatingManualInvoicesITC_Test -->
+      </class> <!-- cloud.tests.GL.GL_USA.COAMappingMaintenanceITC_Test -->
     </classes>
   </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

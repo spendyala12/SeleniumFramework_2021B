@@ -11,32 +11,34 @@ public class RunningaTrialBalanceUsingFRCITC extends BaseTest{
 	public static String DataAccessSet;
 
 	private static void run() throws Exception  {
+				
 		Thread.sleep(5000);
 		clickElement(By.linkText("Financial Reporting Center"));
-		clickElement(By.xpath("//*[contains(@id,'_FOTsr1:0:SP1:cl6::icon')]"));
+		clickElement(By.xpath("//*[text()='All']"));
 		Thread.sleep(5000);
 		setElementText(By.xpath("//*[contains(@id,'_FOTsr1:0:SP1:s12:it3::content')]"),EnterSearchTerms);
-		clickElement(By.xpath("//*[contains(@id,'FOTsr1:0:SP1:s12:cil1::icon')]")); //search
-		clickElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:_FOTsr1:0:SP1:t1:0:gil1')]"));
-		clickElement(By.xpath("//*[contains(@id,'_FOTsr1:1:SP2:goLink1::icon')]"));
-
+		clickElement(By.xpath("//img[@title='Search']")); //search
 		Thread.sleep(5000);
-
-		browser.switchTo().frame(3);               
-
-		WebElement ele1 = browser.findElement(By.xpath("//*[contains(@id,'r1:0:r1:requestBtns:submitButton')]")); 
-
-		String text = ele1.getText();
-		System.out.println(text);
-
-		browser.findElement(By.xpath("//*[contains(@id,'r1:0:r1:requestBtns:submitButton')]")).click();//text() = 'Submit'
-		clickElement(By.xpath("//*[contains(@id,'confirmSubmitDialog::ok')]"));
-
-		browser.switchTo().defaultContent();
-		Thread.sleep(5000);			
-	}		
-
-
+		clickElement(By.xpath("//a[@title='/Shared Folders/Financials/General Ledger/Trial Balances/Trial Balance Report']"));
+		clickElement(By.xpath("//img[@title='Schedule']"));
+		Thread.sleep(5000);
+		//------parameters---
+		//data access set
+		//ledger set
+		//ledger currency
+		//currency type
+		//acc period
+		//amount type
+		//summarrize by
+		
+		  browser.switchTo().frame("j_id40::f");
+		  browser.findElement(By.xpath("//a[@accesskey='m']")).click();
+//		  clickElement(By.xpath("//a[@accesskey='m']"));
+		  browser.switchTo().defaultContent();
+		  Thread.sleep(5000);
+		 	
+		
+	}	
 
 	public static void run(int iterations) throws Exception{
 		initComponent();

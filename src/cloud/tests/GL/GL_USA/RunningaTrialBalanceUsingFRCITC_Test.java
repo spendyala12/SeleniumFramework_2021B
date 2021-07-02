@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import cloud.components.GL.GL_USA.RunningaTrialBalanceUsingFRCITC;
 import cloud.components.common.Login;
+import cloud.components.common.Navigate;
 import cloud.components.common.Navigate_More;
 import itc.framework.BaseTest;
 
@@ -24,7 +25,7 @@ public class RunningaTrialBalanceUsingFRCITC_Test extends BaseTest{
 			scenario = scenario1;
 			testsheet = sheet1;
 			Login.run(1);
-			Navigate_More.run(1);
+			Navigate.run(1);
 			RunningaTrialBalanceUsingFRCITC.run(1);
 		}
 		@AfterTest

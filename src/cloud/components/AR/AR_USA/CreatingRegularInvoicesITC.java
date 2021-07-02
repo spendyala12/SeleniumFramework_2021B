@@ -15,7 +15,7 @@ public class CreatingRegularInvoicesITC extends BaseTest{
 	public static String PaymentTerms;
 	public static String Description;
 	public static String Quantity;
-	public static String UnitPrice,Distribution;
+	public static String UnitPrice,Distribution,transaction_number;
 	
 	private static void run() throws InterruptedException{
 
@@ -54,18 +54,21 @@ public class CreatingRegularInvoicesITC extends BaseTest{
 		//setElementText(By.xpath("//*[contains(@id, 'table1:0:sellingPrice::content')]"), TaxClassification);
 		clickElement(By.xpath("//*[contains(@id, 'pt1:TCF:0:ap1:saveMenu')]/table/tbody/tr/td[1]/a/span")); //save
 		Thread.sleep(5000);		
-		clickElement(By.xpath("//a[contains(text(),'Actions')]")); //Actions
-		Thread.sleep(5000);
-		clickElement(By.xpath("//td[contains(text(),'Edit Distributions')]"));  //edit distributions
-		Thread.sleep(5000);
-		clickElement(By.xpath("//*[contains(@id, 'MAnt2:2:pt1:Trans1:0:ap110:cb7')]")); //yes
-		Thread.sleep(5000);
-		setElementText(By.xpath("//*[contains(@id, 'table2:0:kf1CS::content')]"), Distribution); //distribution
-		Thread.sleep(5000);
-		clickElement(By.xpath("//button[@accesskey='S']")); //Saveandclose
-		Thread.sleep(5000);
-		clickElement(By.xpath("//button[contains(text(),'OK')]")); //ok
-		Thread.sleep(5000);
+		transaction_number = browser.findElement(By.xpath("//*[contains(@id,'_FONSr2:0:MAnt2:2:pt1:Trans1:0:ap110:it2::content')]")).getText();
+		System.out.println(transaction_number);
+		
+//		clickElement(By.xpath("//a[contains(text(),'Actions')]")); //Actions
+//		Thread.sleep(5000);
+//		clickElement(By.xpath("//td[contains(text(),'Edit Distributions')]"));  //edit distributions
+//		Thread.sleep(5000);
+//		clickElement(By.xpath("//*[contains(@id, 'MAnt2:2:pt1:Trans1:0:ap110:cb7')]")); //yes
+//		Thread.sleep(5000);
+//		setElementText(By.xpath("//*[contains(@id, 'table2:0:kf1CS::content')]"), Distribution); //distribution
+//		Thread.sleep(5000);
+//		clickElement(By.xpath("//button[@accesskey='S']")); //Saveandclose
+//		Thread.sleep(5000);
+//		clickElement(By.xpath("//button[contains(text(),'OK')]")); //ok
+//		Thread.sleep(5000);
 //		clickElement(By.xpath("//*[contains(@id, 'newTrx::popEl')]"));
 //		Thread.sleep(5000);
 //		clickElement(By.xpath("//td[contains(text(),'Complete and Review')]")); //complete and review

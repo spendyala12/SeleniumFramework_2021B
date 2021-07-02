@@ -7,7 +7,7 @@ import itc.framework.BaseTest;
 //import itc.framework.Browser;
 public class COAMappingMaintenanceITC extends BaseTest{
 
-	public static String Search;
+	public static String Search,name;
 	public static String MappingMethod;
 	public static String TargetValue;
 	public static String FromValue;
@@ -25,12 +25,15 @@ public class COAMappingMaintenanceITC extends BaseTest{
 		setElementText(By.xpath("//*[contains(@id,'AP1:s9:it1::content')]"),Search);
 		clickElement(By.xpath("//*[@id='pt1:r1:0:r0:1:AP1:s9:ctb1']/a")); //click search icon
 		clickElement(By.linkText("Manage Chart of Accounts Mappings"));
-		clickElement(By.linkText("ITC ARGENTINA COA MAPPING"));	
+		clickElement(By.linkText(name));
 		clickElement(By.xpath("//*[@id='pt1:r1:0:rt:1:r2:0:dynamicRegion1:1:defPanel:segAppTb:_ATp:segTb::db']/table/tbody/tr[3]/td[1]"));
-		clickElement(By.xpath("//*[contains(@id,'pt1:r1:0:rt:1:r2:0:dynamicRegion1:1:defPanel:segAppTb:_ATp:segTb:2:mapTypeSel::content')]"));
-		new Select(browser.findElement(By.xpath("//*[contains(@id,'pt1:r1:0:rt:1:r2:0:dynamicRegion1:1:defPanel:segAppTb:_ATp:segTb:2:mapTypeSel::content')]"))).selectByIndex(0);//selectByVisibleText("Use rollup rules"); //select value from drop down.
-		browser.findElement(By.xpath("//*[contains(@id,'pt1:r1:0:rt:1:r2:0:dynamicRegion1:1:defPanel:segAppTb:_ATp:segTb:2:mapTypeSel::content')]")).sendKeys(Keys.TAB);
-		new Select(browser.findElement(By.xpath("//*[contains(@id, 'pt1:r1:0:rt:1:r2:0:dynamicRegion1:1:defPanel:segAppTb:_ATp:segTb:2:fromSegCd::content')]"))).selectByVisibleText("COMPANY"); //select value from drop down.
+		clickElement(By.xpath("//*[contains(@id,'defPanel:segAppTb:_ATp:segTb:2:mapTypeSel::content')]"));
+		clickElement(By.xpath("//option[contains(text(), 'Use rollup rules')]"));
+		new Select(browser.findElement(By.xpath("//*[contains(@id, 'defPanel:segAppTb:_ATp:segTb:2:mapTypeSel::content')]"))).selectByVisibleText("Use rollup rules"); 
+
+		browser.findElement(By.xpath("//*[contains(@id,'defPanel:segAppTb:_ATp:segTb:2:mapTypeSel::content')]")).sendKeys(Keys.TAB);
+		clickElement(By.xpath("//*[contains(@id,'defPanel:segAppTb:_ATp:segTb:2:fromSegCd::content')]"));
+		new Select(browser.findElement(By.xpath("//*[contains(@id, 'defPanel:segAppTb:_ATp:segTb:2:fromSegCd::content')]"))).selectByVisibleText("COMPANY"); 
 		
 		clickElement(By.xpath("//*[contains(@id,'pt1:r1:0:rt:1:r2:0:dynamicRegion1:1:defPanel:AT1:_ATp:create::icon')]"));
 		setElementText(By.xpath("//*[contains(@id, 'AT1:_ATp:table1:1:toFlexValueId::content')]"),TargetValue); //131500

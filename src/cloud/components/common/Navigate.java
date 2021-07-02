@@ -10,8 +10,9 @@ public class Navigate extends BaseTest{
 	{		
 		clickElement(By.xpath("//a[@title='Navigator']"));
 		Thread.sleep(5000);
-		clickElement(By.linkText(appl));
-
+		if(browser.findElement(By.linkText("Show More")).isDisplayed()) {
+			clickElement(By.linkText("Show More"));
+		}
 	}
 	public static void run(int iterations) throws Exception
 	{	

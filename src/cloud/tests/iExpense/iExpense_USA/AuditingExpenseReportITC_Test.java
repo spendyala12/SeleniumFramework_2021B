@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import cloud.components.iExpense.iExpense_USA.AuditingExpenseReportITC;
 import cloud.components.common.Login;
+import cloud.components.common.Navigate;
 import cloud.components.common.Navigate_More;
 import itc.framework.BaseTest;
 
@@ -24,12 +25,12 @@ public class AuditingExpenseReportITC_Test extends BaseTest {
 		scenario = scenario1;
 		testsheet = sheet1;
 		Login.run(1);
-		Navigate_More.run(1);
+		Navigate.run(1);
 		AuditingExpenseReportITC.run(1);
 	}
 	@AfterTest
 	public void end(){
-	//	close();
+//		close();
 	}
 
 }

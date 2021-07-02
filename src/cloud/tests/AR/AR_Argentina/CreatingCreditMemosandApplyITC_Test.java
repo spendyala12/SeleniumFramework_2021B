@@ -26,7 +26,6 @@ public class CreatingCreditMemosandApplyITC_Test extends BaseTest {
 		scenario = scenario1;
 		testsheet = sheet1;
 		Login.run(1);
-//		Navigate_More.run(1);
 		Navigate.run(1);
 		CreatingCreditMemosandApplyITC.run(1);
 	}

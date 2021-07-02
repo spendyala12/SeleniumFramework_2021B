@@ -24,13 +24,12 @@ public class ClosingPeriodsITC_Test extends BaseTest{
 			scenario = scenario1;
 			testsheet = sheet1;
 			Login.run(1);
-//			Navigate_More.run(1);
 			Navigate.run(1);
 			ClosingPeriodsITC.run(1);
 		}
 		@AfterTest
 		public void end(){
-			close();
+//			close();
 		}
 
 	}

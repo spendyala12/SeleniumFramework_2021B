@@ -7,17 +7,20 @@ import itc.framework.BaseTest;
 
 public class ClosingPeriodsITC extends BaseTest{
 
-	public static String InvoiceNumber;
+	public static String Period,Ledger;
 
 	private static void run() throws Exception  {
 		
 		clickElement(By.linkText("Period Close"));
 		clickElement(By.xpath("//img[@title='General Ledger']")); //general ledger
+		clickElement(By.xpath("//*[contains(@id, 'ap1:selectOneChoiceGL::content')]"));  
+		clickElement(By.xpath("//option[contains(text(), '"+Ledger+"')]"));//ledger
 		clickElement(By.xpath("//*[contains(@id, 'ap1:AT1:_ATp:selectStatus::content')]"));  
 		clickElement(By.xpath("//option[contains(text(), 'Open')]"));
-		clickElement(By.xpath("//*[contains(@id, '_FOTsr1:0:pt1:r1:1:ap1:AT1:_ATp:table1::db')]/table/tbody/tr[1]/td[2]/div/table/tbody/tr/td[1]"));//select row
+		clickElement(By.xpath("//*[contains(text(), '"+Period+"')]")); //select period
 		clickElement(By.xpath("//span[contains(text(),'Close Period')]")); //click Close Period button
-		clickElement(By.xpath("//*[contains(@id,'yes')]")); //click yes button
+		clickElement(By.xpath("//*[@accesskey='o']"));
+//		clickElement(By.xpath("//*[contains(@id,'yes')]")); //click yes button
 			
 	}
 	public static void run(int iterations) throws Exception{

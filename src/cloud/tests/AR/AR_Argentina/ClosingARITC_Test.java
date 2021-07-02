@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import cloud.components.AR.AR_Argentina.ClosingARITC;
 
 import cloud.components.common.Login;
+import cloud.components.common.Navigate;
 import cloud.components.common.Navigate_More;
 import itc.framework.BaseTest;
 
@@ -26,7 +27,7 @@ public class ClosingARITC_Test extends BaseTest {
 		scenario = scenario1;
 		testsheet = sheet1;
 		Login.run(1);
-		Navigate_More.run(1);
+		Navigate.run(1);
 		ClosingARITC.run(1);
 	}
 	@AfterTest

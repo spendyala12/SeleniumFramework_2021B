@@ -39,12 +39,12 @@ public class CreatingParametersforRevaluationITC extends BaseTest{
 		Thread.sleep(5000);
 		clickElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:DAScommandButton12')]")); //Generate button
 		new Select(browser.findElement(By.xpath("//*[contains(@id,'AP1:r1:basicReqBody:dynam1:0:Revaluation::content')]"))).selectByVisibleText("ITC ARG PL");
-		new Select(browser.findElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:basicReqBody:dynam1:0:soc2::content')]"))).selectByVisibleText("ITC USA PL"); 
+		new Select(browser.findElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:basicReqBody:dynam1:0:soc2::content')]"))).selectByVisibleText("ITC ARG PL"); 
 		setElementText(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:basicReqBody:dynam1:0:inputComboboxListOfValues1::content')]"),Revaluation); 
 		Thread.sleep(3000);
-		clickElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:basicReqBody:dynam1:0:soc3::content')]"));
-		clickElement(By.xpath("//option[contains(text(),'NOV-27')]"));
-		//setElementText(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:basicReqBody:dynam1:0:soc3::content')]"),AccountingPeriod);
+		clickElement(By.xpath("//*[contains(@id, 'AP1:r1:basicReqBody:dynam1:0:soc3::content')]"));
+		clickElement(By.xpath("//option[contains(text(), '"+AccountingPeriod+"')]"));
+
 		clickElement(By.xpath("//*[contains(@id,'_FOpt1:_FOr1:0:_FONSr2:0:MAnt2:2:AP1:r1:requestBtns:submitButton')]"));
 		clickElement(By.xpath("//*[contains(@id,'confirmSubmitDialog::ok')]"));
 	}
